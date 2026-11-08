@@ -1,0 +1,17 @@
+name: publish
+on:
+  release:
+    types: [published]
+permissions:
+  contents: read
+  id-token: write   # required for OIDC on the calling job
+jobs:
+  publish:
+    permissions:
+      contents: read
+      id-token: write
+    uses: unabandoned/.github/.github/workflows/reusable-publish.yml@7df8c67cf681d8fc7ee0831d74c1e9d8640b12a9 # main
+    # dist/ is committed (upstream's popper.js@1.16.1 build output, checked
+    # byte-for-byte by test/dist-integrity.test.js), so the token-holding job
+    # needs no install and no build.
+    secrets: inherit
