@@ -4,6 +4,7 @@ package: "@unabandoned/popper.js"
 
 upstream:
   repo: floating-ui/floating-ui
+  branch: v1.x
   reason: "the v1 line (branch v1.x) has not released since 1.16.1 in 2020, and npm marks popper.js deprecated in favour of @popperjs/core v2"
 
 summary: >-
